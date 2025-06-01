@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class BallScript : MonoBehaviour
 {
-    GameObject greenWin;
-    GameObject redWin;
-    Rigidbody2D rigidbody;
+    public GameObject greenWin;
+    public GameObject redWin;
+    public Rigidbody2D rigidbody;
+    int directionX;
+    int directionY;
+    System.Random random = new System.Random();
     void Awake()
     {
-        redWin.SetActive(false);
-        greenWin.SetActive(false);
         greenWin = GameObject.Find("GreenWins");
         redWin = GameObject.Find("RedWins");
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
@@ -16,9 +17,22 @@ public class BallScript : MonoBehaviour
 
     void Start()
     {
-        System.Random random = new System.Random();
-        int directionX = random.Next(-1, 1);
-        int directionY = random.Next(-1, 1);
+        redWin.SetActive(false);
+        greenWin.SetActive(false);
+        directionX = random.Next(-1, 1);
+        directionY = random.Next(-1, 1);
+        Debug.Log(directionX + " " + directionY);
+        rigidbody.AddForce(new Vector2(directionX, directionY));
+    }
+
+    void FixedUpdate()
+    {
+        if (directionX == 0 && directionY == 0)
+        {
+            Debug.Log(directionX + " " + directionY);
+            directionX = random.Next(-1, 1);
+            directionY = random.Next(-1, 1);
+        }
         rigidbody.AddForce(new Vector2(directionX, directionY));
     }
 

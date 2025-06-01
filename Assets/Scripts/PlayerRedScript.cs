@@ -8,11 +8,11 @@ public class PlayerRedScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            gameObject.transform.position = new UnityEngine.Vector2(0f, -5f * Time.deltaTime);
+            gameObject.transform.position = new UnityEngine.Vector2(transform.position.x, -15f * Time.deltaTime);
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            gameObject.transform.position = new UnityEngine.Vector2(0f,5f * Time.deltaTime);
+            gameObject.transform.position = new UnityEngine.Vector2(transform.position.x,15f * Time.deltaTime);
         }
     }
 }

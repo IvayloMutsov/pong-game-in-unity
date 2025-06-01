@@ -7,11 +7,11 @@ public class PlayerGreenScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            gameObject.transform.position = new UnityEngine.Vector2(0f, -5f * Time.deltaTime);
+            gameObject.transform.position = new UnityEngine.Vector2(transform.position.x, -15f * Time.deltaTime);
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
-            gameObject.transform.position = new UnityEngine.Vector2(0f,5f * Time.deltaTime);
+            gameObject.transform.position = new UnityEngine.Vector2(transform.position.x,15f * Time.deltaTime);
         }
     }
 }
